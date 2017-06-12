@@ -3,6 +3,7 @@ var fs = require('fs');
 function Node(value) {
   this.value = value;
   this.next = null;
+  this.prev = null;
 }
 
 function LinkedList() {
@@ -18,14 +19,19 @@ function LinkedList() {
     }
 
     log("digraph BST {");
+    if (current) {
+      log("  null_prev -> " + current.value);
+      log("  null_prev [shape=point]");
+    }
     while (current && current.next) {
       log("  " + current.value + " -> " + current.next.value);
+      log("  " + current.next.value + " -> " + current.value);
       current = current.next;
     }
     if (current) {
-      log("  " + current.value + " -> null");
+      log("  " + current.value + " -> null_next");
     }
-    log("  null [shape=point]");
+    log("  null_next [shape=point]");
     log("}");
 
   };
@@ -34,6 +40,7 @@ function LinkedList() {
     var node = new Node(value);
     node.next = this.root;
     this.root = node;
+    node.next.prev = node;
     if (!this.last) {
       this.last = node;
     }
@@ -46,6 +53,7 @@ function LinkedList() {
       this.last = node;
       return;
     }
+    node.prev = this.last;
     this.last.next = node;
     this.last = node;
   };
@@ -60,6 +68,7 @@ function LinkedList() {
         node.next = current;
         if (prev) {
           prev.next = node;
+          node.prev = prev;
         } else {
           this.root = node;
         }
@@ -74,7 +83,10 @@ function LinkedList() {
   }
 
   this.deleteStart = function(value) {
-    this.root = this.root ? this.root.next : this.root;
+    if (this.root) {
+      this.root = this.root.next;
+      this.root.prev = null;
+    }
   };
 
   this.deleteEnd = function(value) {
@@ -101,8 +113,10 @@ function LinkedList() {
       if (index == 0) {
         if (prev) {
           prev.next = current.next;
+          current.next.prev = prev;
         } else {
           this.root = current.next;
+          this.root.prev = null;
         }
         return true;
       }

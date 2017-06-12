@@ -8,7 +8,7 @@ int main() {
   printf("%c\n", *str);
   printf("%d\n", *str);
   printf("%s\n", &str[2]);
-  printf("%p\n", &str[3]);
+  printf("%p\n", &str[2]);
 
   str[4] = 'e';
 

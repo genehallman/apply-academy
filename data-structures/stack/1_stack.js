@@ -26,7 +26,6 @@ function Stack() {
     }
     log("  null [shape=point]");
     log("}");
-
   };
 
   this.push = function(value) {

@@ -145,7 +145,7 @@ function LinkedList() {
 
 }
 
-var input = [1];
+var input = [9,4,2,5,8,3,1,7,6];
 var ll = new LinkedList();
 input.forEach(i => ll.addStart(i));
 ll.print();

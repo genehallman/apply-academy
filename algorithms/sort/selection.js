@@ -1,16 +1,23 @@
+function swap(arr, i, j) {
+   var temp = arr[i];
+   arr[i] = arr[j];
+   arr[j] = temp;
+}
+
 function selectionSort(arr) {
-  var minIdx, temp, 
-      len = arr.length;
-  for (var i = 0; i < len; i++){
-    minIdx = i;
-    for (var j = i+1; j<len; j++){
-       if (arr[j] < arr[minIdx]) {
-          minIdx = j;
-       }
+  for (var i = 0; i < arr.length; i++) {
+    var minIdx = i;
+
+    for (var j = i+1; j < arr.length; j++) {
+      if (arr[j] < arr[minIdx]) {
+        minIdx = j;
+      } 
     }
-    temp = arr[i];
-    arr[i] = arr[minIdx];
-    arr[minIdx] = temp;
+    swap(arr, i, minIdx);
   }
   return arr;
+}
+
+module.exports = exports = {
+  "selectionSort": selectionSort
 }

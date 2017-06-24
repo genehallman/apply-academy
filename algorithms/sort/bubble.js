@@ -1,13 +1,20 @@
+function swap(arr, i, j) {
+  var temp = arr[i];
+  arr[i] = arr[j];
+  arr[j] = temp;
+}
+
 function bubbleSort(arr) {
-   var len = arr.length;
-   for (var i = len - 1; i >= 0; i--) {
-     for (var j = 1; j <= i; j++) {
-       if(arr[j-1] > arr[j]){
-           var temp = arr[j-1];
-           arr[j-1] = arr[j];
-           arr[j] = temp;
-        }
-     }
-   }
-   return arr;
+  for (var i = arr.length; i > 0; i--) {
+    for (var j = 0; j < i; j++) {
+      if (arr[j] > arr[j+1]) {
+        swap(arr, j, j+1);
+      }
+    }
+  }
+  return arr;
+}
+
+module.exports = exports = {
+  "bubbleSort": bubbleSort
 }

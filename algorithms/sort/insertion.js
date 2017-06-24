@@ -1,17 +1,21 @@
-function insertionSort(arr){
-  var i, len = arr.length, el, j;
+function insertionSort(arr) {
+  var len = arr.length;
 
-  for(i = 1; i < len; i++){
-    el = arr[i];
-    j = i;
+  for (var i = 0; i < len; i++) {
+    var val = arr[i];
 
-    while(j > 0 && arr[j-1] > toInsert){
-      arr[j] = arr[j-1];
-      j--;
-   }
+    for (var j = i - 1; j > -1 && arr[j] > val; j--) {
+      arr[j+1] = arr[j];
+    }
 
-   arr[j] = el;
+    arr[j+1] = val;
   }
 
   return arr;
 }
+
+module.exports = exports = {
+  "insertionSort": insertionSort
+}
+
+

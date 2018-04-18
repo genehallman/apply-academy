@@ -1,8 +1,4 @@
-var print = require('./print_node.js');
-
-const input = [5,3,7,4,2,1,6,8,9];
-
-function Node(key) {
+exports = module.exports = function Node(key) {
   this.deleted = false;
   this.key = key;
   this.left = null;
@@ -45,16 +41,3 @@ function Node(key) {
     }
   };
 }
-
-
-var rootNode = null;
-
-for (var i = 0; i < input.length; i++) {
-  if (i === 0) {
-    rootNode = new Node(input[i]);
-  } else {
-    rootNode.insert(input[i]);
-  }
-}
-
-print(rootNode);

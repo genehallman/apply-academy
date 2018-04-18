@@ -1,7 +1,3 @@
-var print = require('./print_node.js');
-
-const input = [1,2,3,4,5,6,7,8,9];
-
 function Node(key, value) {
 	this.key = key;
 	this.value = value || null;
@@ -35,15 +31,3 @@ function Node(key, value) {
 		return null;
 	};
 }
-
-
-var rootNode = null;
-
-for (var i = 0; i < input.length; i++) {
-	if (i === 0) {
-		rootNode = new Node(input[i]);
-	} else {
-		rootNode.insert(input[i]);
-	}
-}
-print(rootNode);

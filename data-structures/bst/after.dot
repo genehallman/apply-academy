@@ -1,0 +1,30 @@
+digraph BST {
+  6 -> 4
+  6 -> 8
+  4 -> 2
+  4 -> 5
+  2 -> 1
+  2 -> 3
+  1 -> null_1_left
+  1 -> null_1_right
+  null_1_left [shape=point]
+  null_1_right [shape=point]
+  3 -> null_3_left
+  3 -> null_3_right
+  null_3_left [shape=point]
+  null_3_right [shape=point]
+  5 -> null_5_left
+  5 -> null_5_right
+  null_5_left [shape=point]
+  null_5_right [shape=point]
+  8 -> 7
+  8 -> 9
+  7 -> null_7_left
+  7 -> null_7_right
+  null_7_left [shape=point]
+  null_7_right [shape=point]
+  9 -> null_9_left
+  9 -> null_9_right
+  null_9_left [shape=point]
+  null_9_right [shape=point]
+}

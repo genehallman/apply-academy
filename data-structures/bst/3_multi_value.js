@@ -1,17 +1,3 @@
-var print = require('./print_node.js');
-
-const input = [
-  { "key": 5, "value": "anne"},
-  { "key": 3, "value": "bob"},
-  { "key": 7, "value": "carol"},
-  { "key": 4, "value": "doug"},
-  { "key": 2, "value": "eve"},
-  { "key": 1, "value": "fred"},
-  { "key": 6, "value": "gina"},
-  { "key": 8, "value": "harry"},
-  { "key": 9, "value": "isabel"},
-];
-
 function Node(key, value) {
   this.deleted = false;
   this.key = key;
@@ -69,16 +55,3 @@ function Node(key, value) {
     }
   };
 }
-
-
-var rootNode = null;
-
-for (var i = 0; i < input.length; i++) {
-  if (i === 0) {
-    rootNode = new Node(input[i]["key"], input[i]["value"]);
-  } else {
-    rootNode.insert(input[i]["key"], input[i]["value"]);
-  }
-}
-
-print(rootNode);
